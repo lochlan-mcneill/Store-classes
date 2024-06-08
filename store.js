@@ -5,8 +5,9 @@
  */
 class item {
     //properties
-    constructor (itemName, itemPrice, itemQuantity) {
+    constructor (itemName, itemBrand, itemPrice, itemQuantity) {
         this.itemName = itemName;
+        this.itemBrand = itemBrand;
         this.itemPrice = itemPrice;
         this.itemQuantity = itemQuantity;
     }
@@ -41,10 +42,14 @@ class store {
     }
 }
 
-let Cereal = new item("JSCereal", 3, 90)
-let Milk = new item("JSMilk", 1, 20)
 
+//Items
+let Cereal = new item("Cereal", "JSCereal", 3, 90)
+let Milk = new item("Milk", "JSMilk", 1, 20)
+
+//Stores
 let Tesco = new store("Tesco")
 
+//Items added to Stores
 Tesco.addItem(Cereal)
 Tesco.addItem(Milk)
