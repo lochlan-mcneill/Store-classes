@@ -20,8 +20,7 @@ class store {
         if (itemIn instanceof item == true) {
             
             this.inventory[itemIn.itemName] = itemIn
-            console.log (this.inventory)
-            // console.log(`New item added to Inventory: ${this.inventory}.`)
+            console.log(`New item added to Inventory: ${this.inventory}.`)
         }
         else {console.log("Invalid Item.")}
     }
@@ -37,8 +36,6 @@ class store {
 
 
 
-
-
 let Cereal = new item("JSCereal", 3, 90)
 let Milk = new item("JSMilk", 1, 20)
 
@@ -46,4 +43,3 @@ let Tesco = new store("Tesco")
 
 Tesco.addItem(Cereal)
 Tesco.addItem(Milk)
-
