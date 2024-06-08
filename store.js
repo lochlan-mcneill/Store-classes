@@ -1,13 +1,11 @@
 /** Item:
- * item name,
- * item price,
- * item quantity
+ * item name, item price, item quantity
  */
 class item {
     //properties
-    constructor (itemName, itemBrand, itemPrice, itemQuantity) {
+    constructor (itemName, itemType, itemPrice, itemQuantity) {
         this.itemName = itemName;
-        this.itemBrand = itemBrand;
+        this.itemType = itemType;
         this.itemPrice = itemPrice;
         this.itemQuantity = itemQuantity;
     }
@@ -26,30 +24,57 @@ class store {
     //Methods
     addItem(itemIn) {
         if (itemIn instanceof item) {
-            
             this.inventory[itemIn.itemName] = itemIn
-            console.log(`New item added to Inventory: ${this.inventory}.`)
+            console.log(`Item added: ${itemIn.itemName}.`)
         }
         else {console.log("Invalid Item.")}
     }
 
     removeItem(itemOut) {
-        for (i=0; i < this.inventory.itemName.length; i++) {
-            if (itemOut == item.itemName[i]) {
+        if (itemOut in this.inventory) {
+            delete this.inventory[itemOut]
+            console.log(`Item removed: ${itemOut}.`)
+        } else {
+            console.log("There is no product of this name or brand to delete.")
+        }
+    }
 
-            }
+    updateQuantity(itemName, quantityMod) {
+        if(itemName in this.inventory) {
+            console.log(`Old quantity: ${this.inventory[itemName].itemQuantity}`)
+            this.inventory[itemName].itemQuantity += quantityMod
+            console.log(`New quantity: ${this.inventory[itemName].itemQuantity}`)
+        } else{
+            console.log("There is no product of this name or brand to modify the quantity of.")
+        }
+    }
+
+    updatePrice(itemName, newPrice) {
+        if(itemName in this.inventory) {
+            console.log(`Old price: £${this.inventory[itemName].itemPrice}`)
+            this.inventory[itemName].itemPrice = newPrice
+            console.log(`New price: £${this.inventory[itemName].itemPrice}`)
         }
     }
 }
 
 
 //Items
-let Cereal = new item("Cereal", "JSCereal", 3, 90)
-let Milk = new item("Milk", "JSMilk", 1, 20)
+let JSCereal = new item("JSCereal", "Cereal", 3, 90)
+let JSMilk = new item("JSMilk", "Milk", 1, 20)
+let JMilk = new item("JMilk", "Milk", 1.5, 50)
 
 //Stores
 let Tesco = new store("Tesco")
 
-//Items added to Stores
-Tesco.addItem(Cereal)
-Tesco.addItem(Milk)
+
+//Items Testing
+Tesco.addItem(JSCereal) //Add valid item 1
+Tesco.removeItem("JSCereal") //Remove valid item 1
+Tesco.addItem(JSMilk) //Add valid item 2
+Tesco.addItem(JMilk) //Add valid item 3
+let Henry = ("Henry", 6.5, 1) //Creation of non-item
+Tesco.addItem(Henry) //Add invalid item 1
+Tesco.updateQuantity("JSMilk", 50) //Add 50 JSMilk to Tesco Inventory
+console.log(Tesco.inventory) //Check store inventory
+Tesco.updatePrice("JMilk", 2.5) //Updated the price of JMilk
