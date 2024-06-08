@@ -16,7 +16,7 @@ class store {
     }
 
     //Methods
-    add_Item(itemIn) {
+    addItem(itemIn) {
         if (itemIn instanceof item == true) {
             
             this.inventory[itemIn.itemName] = itemIn
@@ -44,6 +44,6 @@ let Milk = new item("JSMilk", 1, 20)
 
 let Tesco = new store("Tesco")
 
-Tesco.add_Item(Cereal)
-Tesco.add_Item(Milk)
+Tesco.addItem(Cereal)
+Tesco.addItem(Milk)
 
