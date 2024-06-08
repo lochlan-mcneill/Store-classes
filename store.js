@@ -1,4 +1,4 @@
-/** Item:
+/**
  * item name, item price, item quantity
  */
 class item {
@@ -11,7 +11,7 @@ class item {
     }
 }
 
-/** Store:
+/**
  * store name
  */
 class store {
