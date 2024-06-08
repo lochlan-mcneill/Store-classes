@@ -65,16 +65,16 @@ let JSMilk = new item("JSMilk", "Milk", 1, 20)
 let JMilk = new item("JMilk", "Milk", 1.5, 50)
 
 //Stores
-let Tesco = new store("Tesco")
+let Vsco = new store("Vsco")
 
 
 //Items Testing
-Tesco.addItem(JSCereal) //Add valid item 1
-Tesco.removeItem("JSCereal") //Remove valid item 1
-Tesco.addItem(JSMilk) //Add valid item 2
-Tesco.addItem(JMilk) //Add valid item 3
+Vsco.addItem(JSCereal) //Add valid item 1
+Vsco.removeItem("JSCereal") //Remove valid item 1
+Vsco.addItem(JSMilk) //Add valid item 2
+Vsco.addItem(JMilk) //Add valid item 3
 let Henry = ("Henry", 6.5, 1) //Creation of non-item
-Tesco.addItem(Henry) //Add invalid item 1
-Tesco.updateQuantity("JSMilk", 50) //Add 50 JSMilk to Tesco Inventory
-console.log(Tesco.inventory) //Check store inventory
-Tesco.updatePrice("JMilk", 2.5) //Updated the price of JMilk
+Vsco.addItem(Henry) //Add invalid item 1
+Vsco.updateQuantity("JSMilk", 50) //Add 50 JSMilk to Vsco Inventory
+console.log(Vsco.inventory) //Check store inventory
+Vsco.updatePrice("JMilk", 2.5) //Updated the price of JMilk
