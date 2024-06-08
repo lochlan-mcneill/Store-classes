@@ -1,3 +1,8 @@
+/** Item:
+ * item name,
+ * item price,
+ * item quantity
+ */
 class item {
     //properties
     constructor (itemName, itemPrice, itemQuantity) {
@@ -7,7 +12,9 @@ class item {
     }
 }
 
-
+/** Store:
+ * store name
+ */
 class store {
     //Properties
     constructor (storeName) {
@@ -17,7 +24,7 @@ class store {
 
     //Methods
     addItem(itemIn) {
-        if (itemIn instanceof item == true) {
+        if (itemIn instanceof item) {
             
             this.inventory[itemIn.itemName] = itemIn
             console.log(`New item added to Inventory: ${this.inventory}.`)
@@ -33,8 +40,6 @@ class store {
         }
     }
 }
-
-
 
 let Cereal = new item("JSCereal", 3, 90)
 let Milk = new item("JSMilk", 1, 20)
